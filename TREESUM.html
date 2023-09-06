@@ -7,30 +7,24 @@
   </head>
   <body>
     <script>
-      let sum = prompt("Введите желаемое значение");
+      const arr = [5, 7, [4, [2], 8, [1, 3], 2], [9, []], 1, 8];
 
-      function treeSum(num) {
-        let arr = Array.from(num);
-        return [...arr.join``]
-          .map((x) => parseFloat(x))
-          .filter((e) => e > 0)
-          .reduce((a, e) => a + e, 0);
+      function treeSum(data) {
+        const value = data.reduce((acc, i) => {
+          if (typeof i === "number") {
+            acc = acc + i;
+          }
+          if (Array.isArray(i)) {
+            acc = acc + treeSum(i);
+          }
+          return acc;
+        }, 0);
+        return value;
       }
 
-      const finalSum = treeSum(sum);
+      const finalSum = treeSum(arr);
 
       console.log(finalSum);
-
-      const count = `
-            сумма всех чисел в массиве: ${finalSum}
-        `;
-      alert(count);
-
-      const result = document.getElementById("result");
-      result.innerText = `
-            РЕЗУЛЬТАТ
-            ${count}
-            `;
     </script>
   </body>
 </html>
