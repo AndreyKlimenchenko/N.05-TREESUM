@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TREESUM</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      let sum = prompt("Введите желаемое значение");
+
+      function treeSum(num) {
+        let arr = Array.from(num);
+        return [...arr.join``]
+          .map((x) => parseFloat(x))
+          .filter((e) => e > 0)
+          .reduce((a, e) => a + e, 0);
+      }
+
+      const finalSum = treeSum(sum);
+
+      console.log(finalSum);
+
+      const count = `
+            сумма всех чисел в массиве: ${finalSum}
+        `;
+      alert(count);
+
+      const result = document.getElementById("result");
+      result.innerText = `
+            РЕЗУЛЬТАТ
+            ${count}
+            `;
+    </script>
+  </body>
 </html>
